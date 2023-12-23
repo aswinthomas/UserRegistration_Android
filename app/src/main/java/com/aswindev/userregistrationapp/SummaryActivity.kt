@@ -26,22 +26,19 @@ class SummaryActivity : AppCompatActivity() {
         binding = ActivitySummaryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        retrieveUserData()
+        setFields()
+        setListeners()
+    }
+
+    private fun retrieveUserData() {
         data = intent.intentSerializable(
             "data",
             UserRegistrationData::class.java
         ) as UserRegistrationData
+    }
 
-        val fullNameText = "Name: "+ data.getFullName()
-        val emailText = "Email Id: " + data.emailId
-        val phoneText = "Phone Number: " + data.phoneNumber
-        binding.textViewUserName.text = fullNameText
-        binding.textViewEmail.text = emailText
-        binding.textViewPhoneNumber.text = phoneText
-
-        // underline the text
-        binding.textViewEmail.paintFlags = binding.textViewEmail.paintFlags or Paint.UNDERLINE_TEXT_FLAG
-        binding.textViewPhoneNumber.paintFlags = binding.textViewPhoneNumber.paintFlags or Paint.UNDERLINE_TEXT_FLAG
-
+    private fun setListeners() {
         binding.textViewEmail.setOnClickListener {
             onEmailClicked()
         }
@@ -49,6 +46,21 @@ class SummaryActivity : AppCompatActivity() {
         binding.textViewPhoneNumber.setOnClickListener {
             onPhoneNumberClicked()
         }
+    }
+
+    private fun setFields() {
+        val fullNameText = "Name: " + data.getFullName()
+        val emailText = "Email Id: " + data.emailId
+        val phoneText = "Phone Number: " + data.phoneNumber
+        binding.textViewUserName.text = fullNameText
+        binding.textViewEmail.text = emailText
+        binding.textViewPhoneNumber.text = phoneText
+
+        // underline the text
+        binding.textViewEmail.paintFlags =
+            binding.textViewEmail.paintFlags or Paint.UNDERLINE_TEXT_FLAG
+        binding.textViewPhoneNumber.paintFlags =
+            binding.textViewPhoneNumber.paintFlags or Paint.UNDERLINE_TEXT_FLAG
     }
 
     private fun onEmailClicked() {

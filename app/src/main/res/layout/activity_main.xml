@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/gradient_background"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -17,7 +18,8 @@
             android:layout_height="200dp"
             android:layout_gravity="center_horizontal"
             android:scaleType="centerCrop"
-            android:src="@drawable/logo" />
+            android:src="@drawable/logo"
+            android:contentDescription="@string/image_view_text_logo" />
 
         <TextView
             android:id="@+id/text_view_registration_title"
@@ -26,7 +28,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_margin="12dp"
             android:gravity="center"
-            android:text="User Registration"
+            android:text="@string/hint_user_registration"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -42,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="12dp"
             android:layout_marginTop="8dp"
-            android:hint="First Name">
+            android:hint="@string/hint_first_name">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_text_first_name"
@@ -57,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="12dp"
             android:layout_marginTop="8dp"
-            android:hint="Last Name">
+            android:hint="@string/hint_last_name">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_text_last_name"
@@ -72,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="12dp"
             android:layout_marginTop="8dp"
-            android:hint="Email">
+            android:hint="@string/hint_email">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_text_email"
@@ -87,7 +89,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="12dp"
             android:layout_marginTop="8dp"
-            android:hint="Phone Number">
+            android:hint="@string/hint_phone_number">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_text_phone_number"
@@ -102,7 +104,8 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="12dp"
             android:layout_marginTop="8dp"
-            android:hint="Password">
+            app:passwordToggleEnabled="true"
+            android:hint="@string/hint_password">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_text_password"
@@ -112,13 +115,13 @@
                 tools:text="12345678" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="48dp"
             android:layout_marginTop="8dp"
-            android:text="Register" />
+            android:text="@string/button_text_register" />
 
     </LinearLayout>
 
